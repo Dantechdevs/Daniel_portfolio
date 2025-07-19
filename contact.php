@@ -92,6 +92,11 @@
         font-size: 16px;
     }
 
+    #notification {
+        font-size: 18px;
+        display: none;
+    }
+
     #backToTop {
         position: fixed;
         bottom: 20px;
@@ -127,6 +132,9 @@
                 <h1 class="section-header">Get in <span>Touch with us</span></h1>
                 <h3>We’d love to hear from you. Send us a message below.</h3>
 
+                <!-- Success Notification -->
+                <div id="notification" class="alert alert-success"></div>
+
                 <form id="contact-form">
                     <div class="row">
                         <div class="col-md-6 form-line">
@@ -141,8 +149,9 @@
                             </div>
                             <div class="form-group">
                                 <label>Mobile No.</label>
-                                <input type="tel" class="form-control" name="phone"
-                                    placeholder="Enter 10-digit mobile no.">
+                                <input type="tel" class="form-control" name="phone" placeholder="e.g. +254712345678"
+                                    pattern="^\+?[0-9\s\-]{7,20}$"
+                                    title="Enter a valid phone number with optional country code">
                             </div>
                         </div>
 
@@ -178,15 +187,22 @@
         e.preventDefault();
         const form = e.target;
         const status = document.getElementById("form-status");
+        const notification = document.getElementById("notification");
 
-        fetch("contact_handler.php", {
+        fetch("php/contact_handler.php", {
                 method: "POST",
                 body: new FormData(form)
             })
             .then(res => res.text())
             .then(response => {
-                status.innerHTML = `<span style="color: lightgreen;">${response}</span>`;
+                notification.innerText = response;
+                notification.style.display = "block";
+                notification.classList.add("alert-success");
+                status.innerHTML = "";
                 form.reset();
+                setTimeout(() => {
+                    notification.style.display = "none";
+                }, 5000);
             })
             .catch(() => {
                 status.innerHTML = "<span style='color: red;'>Oops! Something went wrong.</span>";
@@ -195,11 +211,8 @@
 
     window.onscroll = function() {
         const btn = document.getElementById("backToTop");
-        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            btn.style.display = "flex";
-        } else {
-            btn.style.display = "none";
-        }
+        btn.style.display = (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? "flex" :
+            "none";
     };
 
     document.getElementById("backToTop").onclick = function() {

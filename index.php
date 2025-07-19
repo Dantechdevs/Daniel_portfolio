@@ -5,18 +5,19 @@
         <img src="assets/main.jpg" alt="">
     </div>
     <div class="home-content">
-        <h1>Hi, It's <span>Dantechdevs</span></h1>
+        <h1>Dantechdevs <span>Developers</span></h1>
         <h3 class="typing-text">I'm a <span></span></h3>
-        <p>my passion for software lies with dreaming up ideas and making them come true with elegant interfaces. I take
-            great care in the experience, architecture, and code quality of the things I build.</p>
+        <p>a software developer driven by the passion to bring ideas to life through elegant, user-focused design. I
+            take pride in crafting great experiences, solid architectures, and clean, maintainable code.</p>
         <div class="social-icons">
             <a href="#"><i class="fa-brands fa-linkedin"></i></a>
             <a href="#"><i class="fa-brands fa-github"></i></a>
             <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
             <a href="#"><i class="fa-brands fa-instagram"></i></a>
         </div>
-        <a href="#" class="btn">Hire me</a>
+        <a href="contact.php" class="btn">Hire me</a>
     </div>
 </section>
 
+<hr style="border-top: 2px solid #ccc; margin-top: 60px;">
 <?php include('includes/footer.php'); ?>

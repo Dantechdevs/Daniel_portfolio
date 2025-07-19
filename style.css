@@ -12,7 +12,6 @@ body {
     color: #ffffff;
     line-height: 1.6;
     padding-top: 80px;
-    /* Offset for fixed navbar */
 }
 
 /* ===== Header ===== */
@@ -26,10 +25,7 @@ header {
     top: 0;
     width: 100%;
     z-index: 1000;
-
-    /* Animated border lines - disable border-top/bottom if using ::before/after */
     border: none;
-    position: fixed;
 }
 
 /* === Glowing top & bottom animated lines === */
@@ -116,14 +112,27 @@ section.home {
     max-width: 500px;
 }
 
+/* ===== Custom Styled H1 for Dantechdevs Developers ===== */
 .home-content h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 15px;
     color: #f65a5a;
+    /* Red for 'Dantechdevs' */
+    text-decoration: underline;
 }
 
+.home-content h1 span {
+    color: #00ffff;
+    /* Cyan for 'Developers' */
+    text-decoration: underline;
+    animation: none;
+}
+
+/* ===== Typing Text ===== */
 .home-content h3 {
-    font-size: 24px;
+    font-size: 30px;
+    font-weight: 600;
     margin-bottom: 20px;
     color: #ffffff;
 }
@@ -133,7 +142,10 @@ section.home {
     font-weight: bold;
 }
 
+/* ===== Paragraph Text ===== */
 .home-content p {
+    font-size: 18px;
+    line-height: 1.8;
     margin-bottom: 20px;
     color: #d0d0d0;
 }
@@ -191,10 +203,14 @@ section.home {
     }
 
     .home-content h1 {
-        font-size: 28px;
+        font-size: 36px;
     }
 
     .home-content h3 {
-        font-size: 20px;
+        font-size: 24px;
+    }
+
+    .home-content p {
+        font-size: 16px;
     }
 }
