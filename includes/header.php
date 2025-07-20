@@ -21,7 +21,7 @@
         <nav class="navbar">
             <a href="#" class="active">Home</a>
             <a href="#">About</a>
-            <a href="#">Services</a>
+            <a href="services.php">Services</a>
             <a href="#">Projects</a>
             <a href="#">Blog</a>
             <a href="#">Experience</a>
