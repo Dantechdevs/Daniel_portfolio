@@ -20,7 +20,7 @@
         <a href="#" class="logo">Dantechdevs</a>
         <nav class="navbar">
             <a href="#" class="active">Home</a>
-            <a href="#">About</a>
+            <a href="about.php">About</a>
             <a href="services.php">Services</a>
             <a href="#">Projects</a>
             <a href="#">Blog</a>

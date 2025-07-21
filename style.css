@@ -274,34 +274,3 @@ section.home {
 #contact textarea {
     resize: vertical;
 }
-
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 15px 20px;
-    }
-
-    .navbar {
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        gap: 15px;
-    }
-
-    section.home {
-        flex-direction: column;
-        padding-top: 100px;
-    }
-
-    .home-content h1 {
-        font-size: 36px;
-    }
-
-    .home-content h3 {
-        font-size: 24px;
-    }
-
-    .home-content p {
-        font-size: 16px;
-    }
-}
