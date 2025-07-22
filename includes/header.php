@@ -19,14 +19,14 @@
     <header>
         <a href="#" class="logo">Dantechdevs</a>
         <nav class="navbar">
-            <a href="#" class="active">Home</a>
+            <a href="index.php" class="active">Home</a>
             <a href="about.php">About</a>
             <a href="services.php">Services</a>
             <a href="#">Projects</a>
             <a href="#">Blog</a>
-            <a href="#">Experience</a>
+            <a href="experience.php">Experience</a>
             <a href="#">Testimonials</a>
-            <a href="#">Sponsor Me</a>
+            <a href="sponsor.php">Sponsor Me</a>
             <a href="contact.php">Contact</a>
         </nav>
     </header>

@@ -1,5 +1,4 @@
 <?php include('includes/header.php'); ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,215 +8,179 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Fonts and Icons -->
-    <link href="https://fonts.googleapis.com/css?family=Oleo+Script:400,700|Teko:400,700" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-    <!-- Bootstrap -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-    html,
     body {
-        height: 100%;
-        margin: 0;
-        font-family: 'Teko', sans-serif;
-        scroll-behavior: smooth;
+        font-family: 'Inter', sans-serif;
+        background: #0f0f1b;
+        color: #ffffff;
     }
 
-    .page-wrapper {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+    .contact-section {
+        padding: 60px 20px;
+        background: linear-gradient(145deg, #1f1f2f, #181828);
+        border-radius: 20px;
+        margin: 40px auto;
+        max-width: 1000px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
     }
 
-    #contact {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 60px 0;
-        background: linear-gradient(to left, #3a6186, #89253e);
-        color: #fff;
-    }
-
-    .section-header {
-        font-family: 'Oleo Script', cursive;
-        color: #fcc500;
-        font-size: 50px;
+    .contact-section h1 {
+        font-size: 2.5rem;
+        color: #f65a5a;
         margin-bottom: 10px;
         text-align: center;
     }
 
-    h3 {
-        font-size: 20px;
+    .contact-section h3 {
         text-align: center;
-        margin-bottom: 40px;
-    }
-
-    label {
-        font-size: 20px;
+        color: #ccc;
+        font-size: 1.1rem;
+        margin-bottom: 30px;
     }
 
     .form-control {
-        font-size: 18px;
-        padding: 12px;
-        height: auto;
-    }
-
-    textarea.form-control {
-        height: 180px;
-    }
-
-    .submit {
-        font-size: 18px;
-        float: right;
-        width: 180px;
-        background-color: transparent;
+        background: #2b2b3d;
+        border: 1px solid #444;
         color: #fff;
-        border: 2px solid #fff;
-        transition: 0.3s ease;
     }
 
-    .submit:hover {
-        background-color: #fcc500;
-        color: #000;
+    .form-control:focus {
+        background: #2b2b3d;
+        color: #fff;
+        border-color: #f65a5a;
+        box-shadow: 0 0 0 0.25rem rgba(246, 90, 90, 0.25);
     }
 
-    .form-line {
-        border-right: 1px solid #B29999;
+    label {
+        margin-bottom: 5px;
     }
 
-    #form-status {
-        margin-top: 20px;
-        font-size: 16px;
+    .btn-send {
+        background-color: #f65a5a;
+        color: #fff;
+        border: none;
+        font-weight: 600;
+        padding: 10px 25px;
+        transition: background 0.3s ease;
+    }
+
+    .btn-send:hover {
+        background-color: #ff4d4d;
     }
 
     #notification {
-        font-size: 18px;
         display: none;
+        margin-top: 15px;
     }
 
     #backToTop {
         position: fixed;
-        bottom: 20px;
-        right: 25px;
-        background: #fcc500;
-        color: #000;
+        bottom: 25px;
+        right: 30px;
+        background-color: #f65a5a;
+        color: #fff;
         border: none;
         border-radius: 50%;
         width: 45px;
         height: 45px;
         display: none;
-        align-items: center;
         justify-content: center;
-        font-size: 20px;
+        align-items: center;
+        font-size: 18px;
         z-index: 1000;
-    }
-
-    @media (max-width: 768px) {
-        .form-line {
-            border-right: none;
-            border-bottom: 1px solid #ccc;
-            margin-bottom: 20px;
-        }
     }
     </style>
 </head>
 
 <body>
 
-    <div class="page-wrapper">
-        <section id="contact">
-            <div class="container">
-                <h1 class="section-header">Get in <span>Touch with us</span></h1>
-                <h3>We’d love to hear from you. Send us a message below.</h3>
+    <section class="contact-section container">
+        <h1>Contact Us</h1>
+        <h3>We’d love to hear from you. Fill out the form below.</h3>
 
-                <!-- Success Notification -->
-                <div id="notification" class="alert alert-success"></div>
+        <div id="notification" class="alert alert-success text-center"></div>
 
-                <form id="contact-form">
-                    <div class="row">
-                        <div class="col-md-6 form-line">
-                            <div class="form-group">
-                                <label>Your name</label>
-                                <input type="text" class="form-control" name="name" placeholder="Enter Name" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Email Address</label>
-                                <input type="email" class="form-control" name="email" placeholder="Enter Email"
-                                    required>
-                            </div>
-                            <div class="form-group">
-                                <label>Mobile No.</label>
-                                <input type="tel" class="form-control" name="phone" placeholder="e.g. +254712345678"
-                                    pattern="^\+?[0-9\s\-]{7,20}$"
-                                    title="Enter a valid phone number with optional country code">
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Message</label>
-                                <textarea class="form-control" name="message" placeholder="Enter Your Message"
-                                    required></textarea>
-                            </div>
-                            <div>
-                                <button type="submit" class="btn btn-default submit">
-                                    <i class="fa fa-paper-plane"></i> Send Message
-                                </button>
-                                <p id="form-status"></p>
-                            </div>
-                        </div>
+        <form id="contact-form">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" class="form-control" name="name" id="name" required>
                     </div>
-                </form>
-            </div>
-        </section>
+                    <div class="form-group mt-3">
+                        <label for="email">Email Address</label>
+                        <input type="email" class="form-control" name="email" id="email" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="phone">Mobile No.</label>
+                        <input type="tel" class="form-control" name="phone" id="phone" placeholder="+254712345678"
+                            pattern="^\+?[0-9\s\-]{7,20}$" title="Enter a valid phone number">
+                    </div>
+                </div>
 
-        <?php include 'includes/footer.php'; ?>
-    </div>
+                <div class="col-md-6">
+                    <div class="form-group h-100 d-flex flex-column">
+                        <label for="message">Message</label>
+                        <textarea class="form-control flex-grow-1" name="message" id="message" rows="8"
+                            required></textarea>
+                        <button type="submit" class="btn btn-send mt-3 align-self-end">
+                            <i class="fa fa-paper-plane"></i> Send Message
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
 
     <!-- Scroll to Top Button -->
     <button id="backToTop" title="Go to top">
         <i class="fa fa-arrow-up"></i>
     </button>
 
+    <?php include('includes/footer.php'); ?>
+
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-    document.getElementById("contact-form").addEventListener("submit", function(e) {
+    const form = document.getElementById("contact-form");
+    const notification = document.getElementById("notification");
+    const backToTopBtn = document.getElementById("backToTop");
+
+    form.addEventListener("submit", function(e) {
         e.preventDefault();
-        const form = e.target;
-        const status = document.getElementById("form-status");
-        const notification = document.getElementById("notification");
+        const formData = new FormData(form);
 
         fetch("php/contact_handler.php", {
                 method: "POST",
-                body: new FormData(form)
+                body: formData
             })
             .then(res => res.text())
             .then(response => {
                 notification.innerText = response;
                 notification.style.display = "block";
                 notification.classList.add("alert-success");
-                status.innerHTML = "";
                 form.reset();
-                setTimeout(() => {
-                    notification.style.display = "none";
-                }, 5000);
+                setTimeout(() => notification.style.display = "none", 5000);
             })
             .catch(() => {
-                status.innerHTML = "<span style='color: red;'>Oops! Something went wrong.</span>";
+                notification.innerText = "Oops! Something went wrong.";
+                notification.style.display = "block";
+                notification.classList.remove("alert-success");
+                notification.classList.add("alert-danger");
             });
     });
 
-    window.onscroll = function() {
-        const btn = document.getElementById("backToTop");
-        btn.style.display = (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? "flex" :
-            "none";
+    window.onscroll = () => {
+        backToTopBtn.style.display = (window.scrollY > 300) ? "flex" : "none";
     };
 
-    document.getElementById("backToTop").onclick = function() {
+    backToTopBtn.onclick = () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'

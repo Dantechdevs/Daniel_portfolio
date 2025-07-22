@@ -2,8 +2,12 @@
 
 <section class="services-section">
     <div class="container">
-        <h2 class="section-title">Services I Offer</h2>
-
+        <div style="text-align: center; margin-bottom: 40px;">
+            <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });"
+                class="btn btn-service" style="font-size: 24px; padding: 12px 30px; border: none; cursor: pointer;">
+                Services I Offer
+            </button>
+        </div>
 
         <div class="services-grid">
 

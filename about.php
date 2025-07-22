@@ -101,9 +101,14 @@
     .tech-item img {
         height: 30px;
         margin-bottom: 8px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .tech-item span {
+        display: block;
+        margin-top: 8px;
         font-size: 14px;
         color: #d0d0d0;
     }
@@ -149,9 +154,8 @@
                 <h1>💫 About Me</h1>
                 <p>
                     Hi, I'm <strong>Daniel Ngwasi</strong>, a passionate self-taught full stack web developer and
-                    freelance designer from Kenya.
-                    I love turning ideas into elegant, functional interfaces with clean code and modern design.
-                    I'm also an open-source enthusiast, always learning and sharing.
+                    freelance designer from Kenya. I love turning ideas into elegant, functional interfaces with clean
+                    code and modern design. I'm also an open-source enthusiast, always learning and sharing.
                 </p>
                 <a href="https://github.com/sponsors/laike9m" class="btn-sponsor" target="_blank">❤️ Sponsor Me</a>
             </div>
@@ -166,34 +170,32 @@
                         ["numpy", "numpy-%23013243", "NumPy"],
                         ["plotly", "Plotly-%233F4F75", "Plotly"],
                         ["pytorch", "PyTorch-%23EE4C2C", "PyTorch"],
-                        ["microsoft sql server", "Microsoft%20SQL%20Sever-CC2927", "SQL Server"],
+                        ["microsoft sql server", "Microsoft%20SQL%20Server-CC2927", "SQL Server"],
                         ["mysql", "mysql-%2300f", "MySQL"],
                         ["apache", "apache-%23D42029", "Apache"],
                         ["django", "django-%23092E20", "Django"],
                         ["laravel", "laravel-%23FF2D20", "Laravel"],
                         ["react native", "react_native-%2320232a", "React Native"],
                         ["react", "react-%2320232a", "React"],
-                        ["c#", "c%23-%23239120", "C#"],
+                        ["c-sharp", "c%23-%23239120", "C#"],
                         ["c", "c-%2300599C", "C"],
-                        ["c++", "c++-%2300599C", "C++"],
+                        ["c%2B%2B", "c++-%2300599C", "C++"],
                         ["css3", "css3-%231572B6", "CSS3"],
                         ["html5", "html5-%23E34F26", "HTML5"],
                         ["javascript", "javascript-%23323330", "JavaScript"],
                         ["php", "php-%23777BB4", "PHP"],
                         ["python", "python-3670A0", "Python"],
-                        ["google cloud", "Google%20Cloud-%234285F4", "Google Cloud"],
+                        ["google-cloud", "Google%20Cloud-%234285F4", "Google Cloud"],
                     ];
 
                     foreach ($techs as $tech) {
-                        $logo = strtolower($tech[0]);
+                        $logo = $tech[0];
                         $badge = $tech[1];
                         $label = $tech[2];
-                        echo "
-            <div class='tech-item'>
-              <img src='https://img.shields.io/badge/{$badge}.svg?style=for-the-badge&logo={$logo}&logoColor=white' alt='{$label}' />
-              <span>{$label}</span>
-            </div>
-          ";
+                        echo "<div class='tech-item'>
+                            <img src='https://img.shields.io/badge/{$badge}.svg?style=for-the-badge&logo={$logo}&logoColor=white' alt='{$label}' />
+                            <span>{$label}</span>
+                        </div>";
                     }
                     ?>
                 </div>
