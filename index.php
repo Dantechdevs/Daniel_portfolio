@@ -10,10 +10,11 @@
         <p>a software developer driven by the passion to bring ideas to life through elegant, user-focused design. I
             take pride in crafting great experiences, solid architectures, and clean, maintainable code.</p>
         <div class="social-icons">
-            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="#"><i class="fa-brands fa-github"></i></a>
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/daniel-ngwasi-14b842356"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/Dantechdevs"><i class="fa-brands fa-github"></i></a>
+            <a href="https://x.com/Ngwasidaniel"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.facebook.com/https://web.facebook.com/daniel.ngwasi.9/"><i
+                    class="fa-brands fa-facebook"></i></a>
         </div>
         <a href="contact.php" class="btn">Hire me</a>
     </div>

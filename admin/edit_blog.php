@@ -8,7 +8,7 @@ if (!isset($_SESSION['admin_logged_in'])) {
 $pdo = new PDO("mysql:host=localhost;dbname=daniel_portfolio;charset=utf8mb4", "root", "");
 
 if (!isset($_GET['id'])) {
-    header("Location: blogs.php");
+    header("Location: blog.php");
     exit;
 }
 
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $update = $pdo->prepare("UPDATE blogs SET title = ?, category = ?, content = ? WHERE id = ?");
     $update->execute([$title, $category, $content, $id]);
 
-    header("Location: blogs.php");
+    header("Location: blog.php");
     exit;
 }
 ?>
@@ -45,69 +45,69 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <title>Edit Blog Post</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #0f0f1b;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        background: #0f0f1b;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+    }
 
-        .container {
-            max-width: 700px;
-            margin: 40px auto;
-            padding: 20px;
-        }
+    .container {
+        max-width: 700px;
+        margin: 40px auto;
+        padding: 20px;
+    }
 
-        h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: #f65a5a;
-        }
+    h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #f65a5a;
+    }
 
-        label {
-            display: block;
-            margin: 15px 0 5px;
-            font-weight: bold;
-        }
+    label {
+        display: block;
+        margin: 15px 0 5px;
+        font-weight: bold;
+    }
 
-        input[type="text"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            background: #2a2a40;
-            color: #fff;
-            border: 1px solid #444;
-            border-radius: 8px;
-        }
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        background: #2a2a40;
+        color: #fff;
+        border: 1px solid #444;
+        border-radius: 8px;
+    }
 
-        textarea {
-            min-height: 120px;
-        }
+    textarea {
+        min-height: 120px;
+    }
 
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            background-color: #f65a5a;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-weight: bold;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-        }
+    .btn {
+        display: inline-block;
+        margin-top: 20px;
+        background-color: #f65a5a;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 8px;
+        font-weight: bold;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+    }
 
-        .btn:hover {
-            background-color: #e14a4a;
-        }
+    .btn:hover {
+        background-color: #e14a4a;
+    }
 
-        a.back {
-            color: #ffd700;
-            text-decoration: underline;
-            display: inline-block;
-            margin-top: 20px;
-        }
+    a.back {
+        color: #ffd700;
+        text-decoration: underline;
+        display: inline-block;
+        margin-top: 20px;
+    }
     </style>
 </head>
 

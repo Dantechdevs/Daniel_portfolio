@@ -6,7 +6,7 @@ if (!isset($_SESSION['admin_logged_in'])) {
 }
 
 if (!isset($_GET['id'])) {
-    header("Location: blogs.php");
+    header("Location: blog.php");
     exit;
 }
 
@@ -28,5 +28,5 @@ if (!$blog) {
 $delete = $pdo->prepare("DELETE FROM blogs WHERE id = ?");
 $delete->execute([$id]);
 
-header("Location: blogs.php");
+header("Location: blog.php");
 exit;

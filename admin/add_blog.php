@@ -12,10 +12,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $category = $_POST['category'];
     $content = $_POST['content'];
 
-    $stmt = $pdo->prepare("INSERT INTO blogs (title, category, content, created_at) VALUES (?, ?, ?, NOW())");
-    $stmt->execute([$title, $category, $content]);
+    // Handle image upload
+    $imageFile = null;
+    if (!empty($_FILES['blog_image']['name'])) {
+        $targetDir = __DIR__ . '/../assets/img/blogs/';
+        if (!is_dir($targetDir)) {
+            mkdir($targetDir, 0777, true);
+        }
 
-    header("Location: blogs.php");
+        $fileName = time() . "_" . basename($_FILES["blog_image"]["name"]);
+        $targetFile = $targetDir . $fileName;
+        $fileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+
+        // Validate file
+        $allowedTypes = ['jpg', 'jpeg', 'png', 'gif'];
+        if (in_array($fileType, $allowedTypes)) {
+            if (move_uploaded_file($_FILES["blog_image"]["tmp_name"], $targetFile)) {
+                $imageFile = $fileName;
+            }
+        }
+    }
+
+    // Insert into DB
+    $stmt = $pdo->prepare("INSERT INTO blogs (title, category, content, blog_image, created_at) VALUES (?, ?, ?, ?, NOW())");
+    $stmt->execute([$title, $category, $content, $imageFile]);
+
+    header("Location: blog.php");
     exit;
 }
 ?>
@@ -54,7 +76,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     input[type="text"],
-    textarea {
+    textarea,
+    input[type="file"] {
         width: 100%;
         padding: 10px;
         background: #2a2a40;
@@ -90,6 +113,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         display: inline-block;
         margin-top: 20px;
     }
+
+    #preview {
+        display: none;
+        margin-top: 10px;
+        max-width: 100%;
+        border-radius: 8px;
+    }
     </style>
 </head>
 
@@ -97,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div class="container">
         <h2>➕ Add New Blog Post</h2>
-        <form method="POST" action="">
+        <form method="POST" action="" enctype="multipart/form-data">
             <label>Title <span style="color: #f65a5a;">*</span></label>
             <input type="text" name="title" required>
 
@@ -107,11 +137,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label>Content <span style="color: #f65a5a;">*</span></label>
             <textarea name="content" required></textarea>
 
+            <label>Upload Image</label>
+            <input type="file" name="blog_image" accept="image/*" onchange="previewImage(event)">
+            <img id="preview">
+
             <button type="submit" class="btn">Save Blog Post</button>
         </form>
 
-        <a href="blogs.php" class="back">← Back to Blog List</a>
+        <a href="blog.php" class="back">← Back to Blog List</a>
     </div>
+
+    <script>
+    function previewImage(event) {
+        const preview = document.getElementById('preview');
+        preview.src = URL.createObjectURL(event.target.files[0]);
+        preview.style.display = 'block';
+    }
+    </script>
 
 </body>
 

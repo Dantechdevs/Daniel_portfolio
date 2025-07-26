@@ -7,113 +7,153 @@
     <title>Sponsor Me - Daniel Ngwasi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- SEO & Meta -->
+    <meta name="description"
+        content="Support Daniel Ngwasi, a full-stack developer and open-source contributor, by sponsoring his work and projects.">
+    <meta property="og:title" content="Sponsor Daniel Ngwasi">
+    <meta property="og:description" content="Support Daniel's work on open-source, mentoring, and tech innovations.">
+    <meta property="og:image" content="assets/img/sponsor-banner.png">
+    <meta property="og:type" content="website">
+
     <!-- Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        body {
-            background: #0f0f1b;
-            font-family: 'Inter', sans-serif;
-            color: #f0f0f0;
-        }
+    body {
+        background: #0f0f1b;
+        font-family: 'Inter', sans-serif;
+        color: #f0f0f0;
+    }
 
-        .sponsor-section {
-            max-width: 900px;
-            margin: 60px auto;
-            background: linear-gradient(145deg, #1f1f2f, #181828);
-            padding: 50px 30px;
-            border-radius: 16px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-            text-align: center;
-        }
+    .dark-mode {
+        background: #ffffff;
+        color: #111;
+    }
 
-        .sponsor-section h1 {
-            color: #f65a5a;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
+    .sponsor-section {
+        max-width: 900px;
+        margin: 60px auto;
+        background: linear-gradient(145deg, #1f1f2f, #181828);
+        padding: 50px 30px;
+        border-radius: 16px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        text-align: center;
+    }
 
-        .sponsor-section p {
-            font-size: 1.1rem;
-            color: #c0c0c0;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
+    .sponsor-section h1 {
+        color: #f65a5a;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
 
-        .sponsor-btn {
-            display: inline-block;
-            background-color: #f44336;
-            color: white;
-            padding: 14px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            margin: 10px;
-        }
+    .sponsor-section p {
+        font-size: 1.1rem;
+        color: #c0c0c0;
+        max-width: 700px;
+        margin: 0 auto 30px;
+    }
 
-        .sponsor-btn:hover {
-            background-color: #ff3e3e;
-            box-shadow: 0 0 15px rgba(255, 70, 70, 0.6);
-        }
+    .sponsor-btn {
+        display: inline-block;
+        background-color: #f44336;
+        color: white;
+        padding: 14px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 18px;
+        transition: all 0.3s ease;
+        margin: 10px;
+    }
 
-        .sponsor-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
+    .sponsor-btn:hover {
+        background-color: #ff3e3e;
+        box-shadow: 0 0 15px rgba(255, 70, 70, 0.6);
+    }
 
-        .benefits {
-            margin-top: 40px;
-            text-align: left;
-        }
+    .sponsor-grid {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
 
-        .benefits h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #ffffff;
-        }
+    .benefits {
+        margin-top: 40px;
+        text-align: left;
+    }
 
-        .benefits ul {
-            padding-left: 20px;
-        }
+    .benefits h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #ffffff;
+    }
 
-        .benefits li {
-            margin-bottom: 12px;
-            font-size: 1rem;
-            color: #dddddd;
-        }
+    .benefits ul {
+        padding-left: 20px;
+    }
+
+    .benefits li {
+        margin-bottom: 12px;
+        font-size: 1rem;
+        color: #dddddd;
+    }
+
+    .toggle-mode {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        background: transparent;
+        border: 2px solid #f44336;
+        color: #f44336;
+        padding: 5px 15px;
+        border-radius: 30px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    .spinner-border {
+        width: 1.2rem;
+        height: 1.2rem;
+        display: none;
+    }
     </style>
 </head>
 
 <body>
+    <button class="toggle-mode" onclick="toggleDarkMode()">Toggle Mode</button>
 
-    <section class="sponsor-section">
+    <section class="sponsor-section" data-aos="fade-up">
         <h1>❤️ Sponsor Me</h1>
         <p>
-            I'm Daniel Ngwasi — a passionate full-stack developer and open-source contributor. Sponsoring my work helps me dedicate more time to building free tools, sharing knowledge, and mentoring others in tech.
+            I'm <strong>Daniel Ngwasi</strong> — a passionate full-stack developer and open-source contributor.
+            Sponsoring
+            my work helps me dedicate more time to building free tools, sharing knowledge, and mentoring others in tech.
         </p>
 
-        <div class="sponsor-grid">
-            <a href="https://github.com/sponsors/laike9m" class="sponsor-btn" target="_blank">
+        <div class="sponsor-grid" data-aos="zoom-in" data-aos-delay="100">
+            <a href="https://github.com/sponsors/dantechdevs" class="sponsor-btn" target="_blank"
+                aria-label="Sponsor via GitHub">
                 <i class="fab fa-github"></i> GitHub Sponsor
             </a>
-            <a href="https://www.paypal.me/yourusername" class="sponsor-btn" target="_blank">
+            <a href="https://www.paypal.me/dantechdevs@gmail.com" class="sponsor-btn" target="_blank"
+                aria-label="Sponsor via PayPal">
                 <i class="fab fa-paypal"></i> PayPal
             </a>
-            <a href="https://www.patreon.com/yourusername" class="sponsor-btn" target="_blank">
+            <a href="https://www.patreon.com/yourusername" class="sponsor-btn" target="_blank"
+                aria-label="Sponsor via Patreon">
                 <i class="fab fa-patreon"></i> Patreon
             </a>
-            <a href="#" onclick="alert('Use Till Number 123456 - Daniel Ngwasi')" class="sponsor-btn">
+            <a href="#" class="sponsor-btn" onclick="showMpesa()" aria-label="Sponsor via M-PESA">
                 <i class="fas fa-mobile-alt"></i> M-PESA
+                <span class="spinner-border text-light ms-2" id="mpesa-spinner" role="status" aria-hidden="true"></span>
             </a>
         </div>
 
-        <div class="benefits mt-5">
+        <div class="benefits mt-5" data-aos="fade-up" data-aos-delay="200">
             <h3>🎯 What Your Support Helps With:</h3>
             <ul>
                 <li>Improving open-source tools and libraries</li>
@@ -127,7 +167,25 @@
 
     <?php include('includes/footer.php'); ?>
 
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    AOS.init();
+
+    function showMpesa() {
+        const spinner = document.getElementById('mpesa-spinner');
+        spinner.style.display = 'inline-block';
+        setTimeout(() => {
+            alert('Use M-PESA Till Number: 5148677 - Daniel Ngwasi');
+            spinner.style.display = 'none';
+        }, 1200);
+    }
+
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+    }
+    </script>
 </body>
 
 </html>
