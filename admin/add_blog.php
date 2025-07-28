@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare("INSERT INTO blogs (title, category, content, blog_image, created_at) VALUES (?, ?, ?, ?, NOW())");
     $stmt->execute([$title, $category, $content, $imageFile]);
 
-    header("Location: blog.php");
+    header("Location: manage_blogs.php");
     exit;
 }
 ?>
@@ -144,7 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit" class="btn">Save Blog Post</button>
         </form>
 
-        <a href="blog.php" class="back">← Back to Blog List</a>
+        <a href="manage_blogs.php" class="back">← Back to Blog List</a>
     </div>
 
     <script>

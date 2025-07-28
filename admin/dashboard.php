@@ -323,6 +323,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="delete_blog.php">Delete Blog</a>
         <a href="manage_blog.php">Manage Blog</a>
         <a href="manage_admins.php">Manage Admins</a>
+        <a href="upload_project.php" class="active">Upload Project</a>
     </div>
 
     <!-- Main Content -->

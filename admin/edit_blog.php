@@ -128,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit" class="btn">Update Blog Post</button>
         </form>
 
-        <a href="blogs.php" class="back">← Back to Blog List</a>
+        <a href="manage_blogs.php" class="back">← Back to Blog List</a>
     </div>
 
 </body>
