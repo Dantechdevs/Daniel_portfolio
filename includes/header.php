@@ -76,3 +76,10 @@
             <a href="/contact.php">Contact</a>
         </nav>
     </header>
+    <script>
+        // Toggle navigation menu on small screens
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.navbar').classList.toggle('active');
+        });
+    </script>
+    <!-- End Header & Navigation -->
