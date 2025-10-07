@@ -118,3 +118,45 @@ header::after {
         /* Adjust for header height */
     }
 }
+
+/* ===== Hero / Banner Image Responsive Fix ===== */
+.hero img,
+.banner img,
+.main-image {
+    width: 100%;
+    height: auto;
+    max-height: 90vh;
+    /* Prevents image from filling entire viewport */
+    object-fit: cover;
+    /* Keeps aspect ratio clean */
+    display: block;
+}
+
+/* ===== General Mobile Optimization ===== */
+@media (max-width: 768px) {
+
+    /* Reduce logo size slightly for smaller screens */
+    .logo {
+        font-size: 22px;
+    }
+
+    /* Tighten navbar spacing */
+    .navbar a {
+        font-size: 15px;
+        padding: 8px 16px;
+    }
+
+    /* Ensure hero sections don’t overflow */
+    .hero,
+    .banner,
+    .main-section {
+        padding: 20px 10px;
+        overflow-x: hidden;
+    }
+
+    /* Keep header consistent */
+    header {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+}
