@@ -34,27 +34,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
     <style>
-        /* ====== Fixed Header and Global Padding ====== */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: #0f0f1b;
-            z-index: 1000;
-            padding: 15px 20px;
-            border-bottom: 2px solid #f65a5a;
-        }
+    /* ====== Fixed Header and Global Padding ====== */
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #0f0f1b;
+        z-index: 1000;
+        padding: 15px 20px;
+        border-bottom: 2px solid #f65a5a;
+    }
 
+    body {
+        padding-top: 80px;
+    }
+
+    @media (max-width: 768px) {
         body {
-            padding-top: 80px;
+            padding-top: 100px;
         }
-
-        @media (max-width: 768px) {
-            body {
-                padding-top: 100px;
-            }
-        }
+    }
     </style>
 </head>
 
@@ -63,6 +63,7 @@
     <!-- Header & Navigation -->
     <header>
         <a href="/index.php" class="logo">Dantechdevs</a>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         <nav class="navbar">
             <a href="/index.php">Home</a>
             <a href="/about.php">About</a>
