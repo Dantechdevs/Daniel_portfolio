@@ -34,27 +34,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
     <style>
-        /* ====== Fixed Header and Global Padding ====== */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: #0f0f1b;
-            z-index: 1000;
-            padding: 15px 20px;
-            border-bottom: 2px solid #f65a5a;
-        }
+    /* ====== Fixed Header and Global Padding ====== */
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #0f0f1b;
+        z-index: 1000;
+        padding: 15px 20px;
+        border-bottom: 2px solid #f65a5a;
+    }
 
+    body {
+        padding-top: 80px;
+    }
+
+    @media (max-width: 768px) {
         body {
-            padding-top: 80px;
+            padding-top: 100px;
         }
-
-        @media (max-width: 768px) {
-            body {
-                padding-top: 100px;
-            }
-        }
+    }
     </style>
 </head>
 
@@ -64,14 +64,14 @@
     <header>
         <a href="/daniel-portfolio/index.php" class="logo">Dantechdevs</a>
         <nav class="navbar">
-            <a href="/daniel-portfolio/index.php">Home</a>
-            <a href="/daniel-portfolio/about.php">About</a>
-            <a href="/daniel-portfolio/services.php">Services</a>
-            <a href="/daniel-portfolio/project.php">Projects</a>
-            <a href="/daniel-portfolio/blog.php">Blog</a>
-            <a href="/daniel-portfolio/experience.php">Experience</a>
-            <a href="/daniel-portfolio/testimonial.php">Testimonials</a>
-            <a href="/daniel-portfolio/sponsor.php">Sponsor Me</a>
-            <a href="/daniel-portfolio/contact.php">Contact</a>
+            <a href="/index.php">Home</a>
+            <a href="/about.php">About</a>
+            <a href="/services.php">Services</a>
+            <a href="/project.php">Projects</a>
+            <a href="/blog.php">Blog</a>
+            <a href="/experience.php">Experience</a>
+            <a href="/testimonial.php">Testimonials</a>
+            <a href="/sponsor.php">Sponsor Me</a>
+            <a href="/contact.php">Contact</a>
         </nav>
     </header>
