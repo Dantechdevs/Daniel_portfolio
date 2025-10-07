@@ -370,3 +370,28 @@ section.home {
         font-size: 14px;
     }
 }
+
+/* Fix header covering content on small screens */
+@media (max-width: 768px) {
+    header {
+        position: fixed;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+        height: auto;
+        /* Let it resize naturally */
+    }
+
+    body {
+        padding-top: 120px;
+        /* Increase top padding for small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 140px;
+        /* More space if header stacks tall */
+    }
+}
