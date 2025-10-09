@@ -1,73 +1,66 @@
 <?php include('includes/header.php'); ?>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-<section class="projects-section" style="background-color: #0f0f1b; color: #fff; padding: 60px 20px;">
+<section class="projects-section" style="background-color:#0f0f1b; color:#fff; padding:60px 20px;">
     <div class="container">
-        <h2 class="text-center mb-5" style="font-size: 36px; color: #f65a5a;">🚀 My Projects</h2>
+        <h2 class="text-center mb-5" style="font-size:36px; color:#f65a5a;">🚀 Latest GitHub Projects</h2>
 
         <?php
-        function fetchGitHubProjects($username, $limit = 3)
+        // ===== Fetch Repositories from GitHub API =====
+        function fetchGitHubRepos($username, $limit = 5)
         {
-            $apiUrl = "https://api.github.com/users/$username/repos?per_page=$limit";
-            $context = stream_context_create(['http' => ['user_agent' => 'portfolio-site']]);
-            $response = @file_get_contents($apiUrl, false, $context);
+            $url = "https://api.github.com/users/$username/repos?sort=updated&per_page=$limit";
+            $context = stream_context_create([
+                'http' => [
+                    'user_agent' => 'Dantechdevs-Portfolio',
+                    'timeout' => 10
+                ]
+            ]);
+            $response = @file_get_contents($url, false, $context);
             return $response ? json_decode($response, true) : [];
         }
 
-        try {
-            $pdo = new PDO("mysql:host=localhost;dbname=daniel_portfolio;charset=utf8mb4", "root", "");
-            $stmt = $pdo->query("SELECT * FROM projects ORDER BY created_at DESC LIMIT 6");
-            $localProjects = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        } catch (Exception $e) {
-            $localProjects = [];
-        }
-
-        $githubProjects = fetchGitHubProjects('Dantechdevs', 3);
+        $repos = fetchGitHubRepos('Dantechdevs', 5);
         ?>
 
         <div class="row g-4 justify-content-center">
-            <!-- Local Projects -->
-            <?php if (!empty($localProjects)): ?>
-            <?php foreach ($localProjects as $proj): ?>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                <div class="p-3 rounded h-100" style="background:#1f1f2f; display: flex; flex-direction: column;">
-                    <?php if (!empty($proj['image'])): ?>
-                    <div class="mb-3 d-flex align-items-center justify-content-center"
-                        style="height: 200px; background:#2a2a40; overflow: hidden;">
-                        <img src="<?= htmlspecialchars(basename($proj['image'])) ?>"
-                            alt="<?= htmlspecialchars($proj['title']) ?>" class="img-fluid rounded"
-                            style="max-height: 100%; object-fit: contain;">
-                    </div>
-                    <?php endif; ?>
-                    <h4 style="color: #f65a5a;"><?= htmlspecialchars($proj['title']) ?></h4>
-                    <p style="color: #ccc;">
-                        <?= nl2br(htmlspecialchars($proj['description'])) ?: '<em>No description available.</em>' ?></p>
-                    <?php if (!empty($proj['github_url'])): ?>
-                    <a href="<?= htmlspecialchars($proj['github_url']) ?>" target="_blank"
-                        style="color: #ffd700; text-decoration: underline;">🔗 View on GitHub</a>
-                    <?php endif; ?>
-                </div>
-            </div>
-            <?php endforeach; ?>
-            <?php else: ?>
-            <p class="text-center text-muted">No local projects found.</p>
-            <?php endif; ?>
+            <?php if (!empty($repos)): ?>
+                <?php foreach ($repos as $repo): ?>
+                    <?php
+                    $name = htmlspecialchars($repo['name']);
+                    $desc = htmlspecialchars($repo['description'] ?? 'No description available.');
+                    $url = htmlspecialchars($repo['html_url']);
+                    $lang = htmlspecialchars($repo['language'] ?? 'Unknown');
+                    $stars = htmlspecialchars($repo['stargazers_count']);
+                    $owner = htmlspecialchars($repo['owner']['login']);
 
-            <!-- GitHub Projects -->
-            <?php if (!empty($githubProjects)): ?>
-            <?php foreach ($githubProjects as $repo): ?>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="p-3 rounded h-100" style="background:#1f1f2f;">
-                    <h4 style="color: #f65a5a;"><?= htmlspecialchars($repo['name']) ?></h4>
-                    <p style="color: #ccc;">
-                        <?= nl2br(htmlspecialchars($repo['description'] ?? 'No description available.')) ?></p>
-                    <a href="<?= htmlspecialchars($repo['html_url']) ?>" target="_blank"
-                        style="color: #ffd700; text-decoration: underline;">🔗 View on GitHub</a>
-                </div>
-            </div>
-            <?php endforeach; ?>
+                    // Try to load repo image (common screenshot name)
+                    $imageUrl = "https://raw.githubusercontent.com/$owner/$name/main/screenshot.png";
+                    $headers = @get_headers($imageUrl);
+                    if (!$headers || strpos($headers[0], '200') === false) {
+                        $imageUrl = "assets/img/project-placeholder.jpg"; // fallback image
+                    }
+                    ?>
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                        <div class="p-3 rounded h-100 shadow" style="background:#1f1f2f; display:flex; flex-direction:column;">
+                            <div class="mb-3 d-flex align-items-center justify-content-center"
+                                style="height:200px; background:#2a2a40; overflow:hidden; border-radius:10px;">
+                                <img src="<?= $imageUrl ?>" alt="<?= $name ?>" class="img-fluid"
+                                    style="max-height:100%; object-fit:cover;">
+                            </div>
+                            <h4 style="color:#f65a5a;"><?= $name ?></h4>
+                            <p style="color:#ccc;"><?= $desc ?></p>
+                            <p style="color:#aaa; font-size:14px;">
+                                <strong>Language:</strong> <?= $lang ?> |
+                                ⭐ <?= $stars ?>
+                            </p>
+                            <a href="<?= $url ?>" target="_blank"
+                                style="color:#ffd700; text-decoration:underline;">🔗 View on GitHub</a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             <?php else: ?>
-            <p class="text-center text-muted">Unable to fetch GitHub repositories.</p>
+                <p class="text-center text-muted">⚠️ Unable to fetch repositories. Please check your internet connection or GitHub API limit.</p>
             <?php endif; ?>
         </div>
     </div>
@@ -75,7 +68,7 @@
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-AOS.init();
+    AOS.init();
 </script>
 
 <?php include('includes/footer.php'); ?>
