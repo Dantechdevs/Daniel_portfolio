@@ -19,128 +19,128 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
-    body {
-        background: #0f0f1b;
-        color: #eaeaea;
-        font-family: 'Inter', sans-serif;
-    }
+        body {
+            background: #0f0f1b;
+            color: #eaeaea;
+            font-family: 'Inter', sans-serif;
+        }
 
-    .about-section {
-        padding: 60px 20px;
-    }
+        .about-section {
+            padding: 60px 20px;
+        }
 
-    .hero {
-        background: linear-gradient(145deg, #1f1f2f, #181828);
-        border-radius: 16px;
-        padding: 50px 30px;
-        margin-bottom: 50px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-        text-align: center;
-    }
+        .hero {
+            background: linear-gradient(145deg, #1f1f2f, #181828);
+            border-radius: 16px;
+            padding: 50px 30px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
 
-    .hero h1 {
-        font-size: 2.5rem;
-        color: #f65a5a;
-        margin-bottom: 15px;
-    }
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #f65a5a;
+            margin-bottom: 15px;
+        }
 
-    .hero p {
-        font-size: 1.1rem;
-        max-width: 800px;
-        margin: 0 auto;
-        color: #c0c0c0;
-    }
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #c0c0c0;
+        }
 
-    .btn-sponsor {
-        display: inline-block;
-        background-color: #f44336;
-        color: white;
-        padding: 12px 25px;
-        border-radius: 30px;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 16px;
-        box-shadow: 0 4px 12px rgba(246, 90, 90, 0.3);
-        transition: all 0.3s ease;
-        margin-top: 20px;
-    }
+        .btn-sponsor {
+            display: inline-block;
+            background-color: #f44336;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(246, 90, 90, 0.3);
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
 
-    .btn-sponsor:hover {
-        background-color: #e53935;
-        box-shadow: 0 6px 20px rgba(246, 90, 90, 0.5);
-    }
+        .btn-sponsor:hover {
+            background-color: #e53935;
+            box-shadow: 0 6px 20px rgba(246, 90, 90, 0.5);
+        }
 
-    .section-header {
-        font-size: 1.75rem;
-        text-align: center;
-        margin-bottom: 30px;
-        color: #ffffff;
-    }
+        .section-header {
+            font-size: 1.75rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
 
-    .tech-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 20px;
-        margin-bottom: 60px;
-    }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
 
-    .tech-item {
-        background: rgba(255, 255, 255, 0.05);
-        padding: 15px;
-        border-radius: 12px;
-        text-align: center;
-        transition: transform 0.2s ease;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
+        .tech-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.2s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-    .tech-item:hover {
-        transform: scale(1.05);
-        background: rgba(255, 255, 255, 0.08);
-    }
+        .tech-item:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.08);
+        }
 
-    .tech-item img {
-        height: 30px;
-        margin-bottom: 8px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
+        .tech-item img {
+            height: 30px;
+            margin-bottom: 8px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    .tech-item span {
-        display: block;
-        margin-top: 8px;
-        font-size: 14px;
-        color: #d0d0d0;
-    }
+        .tech-item span {
+            display: block;
+            margin-top: 8px;
+            font-size: 14px;
+            color: #d0d0d0;
+        }
 
-    .social-buttons {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
 
-    .social-buttons a {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 10px 20px;
-        background-color: #2c2c3f;
-        color: #00ffff;
-        border-radius: 30px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: background 0.3s ease;
-    }
+        .social-buttons a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background-color: #2c2c3f;
+            color: #00ffff;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
 
-    .social-buttons a:hover {
-        background-color: #f65a5a;
-        color: #fff;
-    }
+        .social-buttons a:hover {
+            background-color: #f65a5a;
+            color: #fff;
+        }
 
-    .social-buttons i {
-        font-size: 18px;
-    }
+        .social-buttons i {
+            font-size: 18px;
+        }
     </style>
 </head>
 
@@ -157,7 +157,7 @@
                     freelance designer from Kenya. I love turning ideas into elegant, functional interfaces with clean
                     code and modern design. I'm also an open-source enthusiast, always learning and sharing.
                 </p>
-                <a href="https://github.com/sponsors/laike9m" class="btn-sponsor" target="_blank">❤️ Sponsor Me</a>
+                <a href="sponsor.php" class="btn-sponsor" target="_blank">❤️ Sponsor Me</a>
             </div>
 
             <!-- Tech Stack -->
@@ -223,7 +223,7 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-    AOS.init();
+        AOS.init();
     </script>
 
 </body>
